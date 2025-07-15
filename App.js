@@ -1,20 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import "react-native-gesture-handler";
+import React from "react";
+import { StatusBar } from "expo-status-bar";
+import * as eva from "@eva-design/eva";
+import { ApplicationProvider, IconRegistry } from "@ui-kitten/components";
+import { EvaIconsPack } from "@ui-kitten/eva-icons";
+import { NavigationContainer } from "@react-navigation/native";
+import { RootSiblingParent } from "react-native-root-siblings";
+import * as Location from "expo-location";
+import { LocationContextProvider } from "./src/lib/context";
+import TabNavigator from "./src/components/TabNavigator";
 
-export default function App() {
+export default () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <LocationContextProvider>
+      <RootSiblingParent>
+        <IconRegistry icons={EvaIconsPack} />
+        <ApplicationProvider {...eva} theme={eva.dark}>
+          <NavigationContainer>
+            <TabNavigator />
+          </NavigationContainer>
+          <StatusBar style="auto" />
+        </ApplicationProvider>
+      </RootSiblingParent>
+    </LocationContextProvider>
   );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+};

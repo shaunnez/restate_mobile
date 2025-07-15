@@ -1,0 +1,26 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+  "editor.detectIndentation": true,
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.formatOnSave": true,
+  "files.exclude": {
+    ".next": true,
+    "**/dist": true,
+    ".expo": true,
+    "android": true,
+    "ios": true,
+    "node_modules": true
+  },
+  "path-intellisense.mappings": {
+    "~": "${workspaceRoot}/src"
+  },
+  "tslint.configFile": "./tsconfig.json",
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "scss.scanImportedFiles": true,
+  "scss.scannerExclude": ["**/.git"],
+  "todohighlight.isCaseSensitive": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+}
